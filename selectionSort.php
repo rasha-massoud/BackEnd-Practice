@@ -1,10 +1,11 @@
-<?php
+<?php 
+header('Access-Control-Allow-Origin: *');
 include("connection.php"); 
 
-$strOfNumbers=$_GET['strOfNumbers'];
+$strOfNumbers=isset($_GET['strOfNumbers']);
+// $strOfNumbers="3,6,43,24,6,58";
 $Array=explode(",", $strOfNumbers);
-
-$n=sizeof($Array);
+$n=count($Array);
 for($i=0; $i<$n; $i++) {
     $min_idx = $i;
 
@@ -16,9 +17,8 @@ for($i=0; $i<$n; $i++) {
     $temp = (int)$Array[$min_idx];
     $Array[$min_idx] = (int)$Array[$i];
     $Array[$i] = (int)$temp;
+    $response["sortedAray"]=$Array;
 }
-
-$response["sortedAray"]=$Array;
 
 echo json_encode($response);
 
