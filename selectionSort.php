@@ -1,8 +1,9 @@
 <?php 
-header('Access-Control-Allow-Origin: *');
+// header('Access-Control-Allow-Origin: *');
 include("connection.php"); 
 
-$strOfNumbers=isset($_GET['strOfNumbers']);
+$strOfNumbers=$_GET["strOfNumbers"];
+echo $strOfNumbers;
 // $strOfNumbers="3,6,43,24,6,58";
 $Array=explode(",", $strOfNumbers);
 $n=count($Array);
